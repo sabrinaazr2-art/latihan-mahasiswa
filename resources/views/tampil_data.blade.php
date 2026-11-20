@@ -24,7 +24,12 @@
         <td>{{ $row->gender }}</td>
         <td>{{ $row->gaji }}</td>
         <td>
-            <button>Edit</button> | <button>Delete</button>
+            <a href="/employe/edit/{{ $row->id }}"><button type="button">Edit</button></a> |
+            <form method="post" action="/employe/{{ $row->id }}" style="display: inline-block;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                @method('delete')
+                @csrf
+                <button type="submit">Delete</button>
+            </form>
         </td>
     </tr>
     @empty
