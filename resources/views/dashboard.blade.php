@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Templating Laravel</title>
+    <meta charset="utf-8">
+    <title>{{ $judul ?? 'Dashboard' }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 </head>
-<body style="margin: 0; font-family: Arial, sans-serif;">
+<body>
+    <!-- membuat container -->
+    <div class="container">
+        <!-- header -->
+        @include('template/header')
+        <!-- header -->
 
-    {{-- HEADER --}}
-    @include('template/header')
+        <div class="isi">
+            <!-- sidebar -->
+            @include('template/sidebar')
+            <!-- sidebar -->
 
-    <div style="display: flex;">
-        {{-- SIDEBAR --}}
-        @include('template/sidebar')
-
-        {{-- CONTENT --}}
-        <div style="flex: 1; padding: 20px;">
-            @yield('content')
+            <!-- content -->
+            <div class="content">
+                @yield('content')
+            </div>
+            <!-- content -->
         </div>
     </div>
-
 </body>
 </html>

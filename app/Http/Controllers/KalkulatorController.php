@@ -6,31 +6,45 @@ use Illuminate\Http\Request;
 
 class KalkulatorController extends Controller
 {
+    // --- Materi Modul Halaman 10 - 12: Kalkulator Sederhana (Perkalian) ---
+    public function home()
+    {
+        $data['judul'] = 'Kalkulator Sederhana';
+        $data['angka1'] = 0;
+        $data['angka2'] = 0;
+        $data['hasil'] = 0;
+
+        return view('kalkulator', $data);
+    }
+
+    public function proses(Request $request)
+    {
+        $data['judul'] = 'Kalkulator Sederhana';
+        $data['angka1'] = $request->input('angka1', 0);
+        $data['angka2'] = $request->input('angka2', 0);
+        $data['hasil'] = $data['angka1'] * $data['angka2'];
+
+        return view('kalkulator', $data);
+    }
+
+    // --- Latihan Modul Halaman 12 No. 3: Kalkulator Luas Segitiga ---
     public function segitiga()
     {
-        // Menampilkan halaman kalkulator dengan nilai awal (alas = 10, tinggi = 5)
-        $alas = 10;
-        $tinggi = 5;
-        $luas = 0.5 * $alas * $tinggi;
+        $data['judul'] = 'Kalkulator Luas Segitiga';
+        $data['alas'] = 0;
+        $data['tinggi'] = 0;
+        $data['luas'] = 0;
 
-        return view('segitiga', [
-            'alas' => $alas,
-            'tinggi' => $tinggi,
-            'luas' => $luas
-        ]);
+        return view('segitiga', $data);
     }
 
     public function hitungSegitiga(Request $request)
     {
-        // Mengambil angka yang diketik pengguna lalu menghitung luasnya
-        $alas = $request->input('alas');
-        $tinggi = $request->input('tinggi');
-        $luas = 0.5 * $alas * $tinggi;
+        $data['judul'] = 'Kalkulator Luas Segitiga';
+        $data['alas'] = $request->input('alas', 0);
+        $data['tinggi'] = $request->input('tinggi', 0);
+        $data['luas'] = 0.5 * $data['alas'] * $data['tinggi'];
 
-        return view('segitiga', [
-            'alas' => $alas,
-            'tinggi' => $tinggi,
-            'luas' => $luas
-        ]);
+        return view('segitiga', $data);
     }
 }

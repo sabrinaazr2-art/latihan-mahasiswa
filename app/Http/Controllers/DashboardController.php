@@ -8,13 +8,19 @@ class DashboardController extends Controller
 {
     public function home()
     {
-        $judul = 'Home';
+        $judul = 'Laman Home';
         return view('home', compact('judul'));
     }
 
     public function gallery()
     {
-        $judul = 'Gallery';
+        $judul = 'Laman Gallery';
         return view('gallery', compact('judul'));
+    }
+
+    public function about()
+    {
+        $judul = 'Laman About';
+        return view('about', compact('judul'));
     }
 }
