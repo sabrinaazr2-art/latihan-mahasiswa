@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Daftarkan alias middleware islogin sesuai Modul Hal. 38
+        $middleware->alias([
+            'islogin' => \App\Http\Middleware\IsLogin::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

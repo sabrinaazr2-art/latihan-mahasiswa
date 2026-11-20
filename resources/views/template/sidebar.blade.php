@@ -6,5 +6,6 @@
         <li><a href="/employe/create">+ Tambah Pegawai</a></li>
         <li><a href="/daftar/mahasiswa">Mahasiswa</a></li>
         <li><a href="/about">About</a></li>
+        <li><a href="/logout">Logout</a></li>
     </ul>
 </div>
